@@ -43,6 +43,6 @@ node('master') {
 
      stage ('Notify') {
         // Send slack notification
-        slackSend channel: '#bot-testing', message: 'Test project... Built Succesfully', teamDomain: 'hero-team', token: 'my-token'
+        slackSend channel: '#bot-testing', message: 'Test project... Built Succesfully', teamDomain: 'hero-team', token: 'gMhJ06NkfQdBOX5iz1aoBmmu'
     }
 }
