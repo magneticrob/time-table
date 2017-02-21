@@ -41,8 +41,8 @@ node('master') {
         }, failFast: true|false   
     }
 
-    // stage ('Notify') {
+     stage ('Notify') {
         // Send slack notification
-    //    slackSend channel: '#my-team', message: 'Time Table - Successfully', teamDomain: 'my-team', token: 'my-token'
-    // }
+        slackSend channel: '#bot-testing', message: 'Test project... Built Succesfully', teamDomain: 'hero-team', token: 'my-token'
+    }
 }
