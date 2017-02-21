@@ -25,7 +25,7 @@ node('master') {
         
         parallel Coverage: {
             // Generate Code Coverage report
-            '/usr/local/bin/slather coverage --jenkins --html --scheme TimeTable TimeTable.xcodeproj/'
+            '/usr/local/bin/slather coverage --verbose --jenkins --html --scheme TimeTable TimeTable.xcodeproj/'
     
             // Publish coverage results
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html', reportFiles: 'index.html', reportName: 'Coverage Report'])
@@ -37,7 +37,7 @@ node('master') {
             sh '/usr/local/bin/swiftlint lint --reporter checkstyle > checkstyle.xml || true'
     
             // Publish checkstyle result
-            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
+            // step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
         }, failFast: true|false   
     }
 
