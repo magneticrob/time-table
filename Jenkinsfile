@@ -34,10 +34,10 @@ node('master') {
         }, Checkstyle: {
 
             // Generate Checkstyle report
-            sh '/usr/local/bin/swiftlint lint --reporter checkstyle > checkstyle.xml || true'
+            '/usr/local/bin/swiftlint lint --reporter checkstyle > checkstyle.xml || true'
     
             // Publish checkstyle result
-            // step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
+            step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
         }, failFast: true|false   
     }
 
